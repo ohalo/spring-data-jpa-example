@@ -13,7 +13,7 @@ import lombok.Setter;
 public class AuditorAwareImpl implements AuditorAware<User> {
 
     @Setter User user;
-
+    
     @Override
     public User getCurrentAuditor() {
         return user;
