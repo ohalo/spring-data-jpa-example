@@ -1,4 +1,4 @@
-package com.halo.spring.data.jpa.example.part1;
+package com.halo.spring.data.jpa.example.simplequery;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;

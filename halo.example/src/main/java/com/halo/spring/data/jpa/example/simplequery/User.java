@@ -1,4 +1,4 @@
-package com.halo.spring.data.jpa.example.part1;
+package com.halo.spring.data.jpa.example.simplequery;
 
 import java.util.Date;
 
@@ -7,6 +7,7 @@ import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 import org.springframework.data.annotation.CreatedBy;
@@ -38,6 +39,7 @@ import lombok.Data;
 @Entity
 @Table(name = "T_USER")
 @EntityListeners(AuditingEntityListener.class)
+@NamedQuery(name = "User.findByTheUsersName", query = "from User u where u.username = ?1")
 public class User {
 
     /**
@@ -84,5 +86,8 @@ public class User {
      * @ManyToOne 多对一的关系，表示一个更新者 会更新多条用户记录
      */
     private @ManyToOne @LastModifiedBy User lastModifiedBy;
+
+    private String                          firstname;
+    private String                          lastname;
 
 }
