@@ -1,4 +1,4 @@
-package com.halo.spring.data.jpa.example.example4;
+package com.halo.spring.data.jpa.example.chapter4;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
@@ -20,8 +20,8 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.halo.spring.data.jpa.example.example4.User;
-import com.halo.spring.data.jpa.example.example4.UserPagingAndSortingRepository;
+import com.halo.spring.data.jpa.example.chapter4.User;
+import com.halo.spring.data.jpa.example.chapter4.UserPagingAndSortingRepository;
 
 @RunWith(SpringRunner.class)
 @Transactional

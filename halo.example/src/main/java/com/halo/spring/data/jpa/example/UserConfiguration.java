@@ -4,7 +4,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
-import com.halo.spring.data.jpa.example.example4.AuditorAwareImpl;
+import com.halo.spring.data.jpa.example.chapter4.AuditorAwareImpl;
 
 /**
  * 注解配置

@@ -1,4 +1,4 @@
-package com.halo.spring.data.jpa.example.example4;
+package com.halo.spring.data.jpa.example.chapter4;
 
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;

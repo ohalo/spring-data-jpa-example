@@ -1,4 +1,4 @@
-package com.halo.spring.data.jpa.example.example4;
+package com.halo.spring.data.jpa.example.chapter4;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
@@ -15,9 +15,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.halo.spring.data.jpa.example.example4.AuditorAwareImpl;
-import com.halo.spring.data.jpa.example.example4.User;
-import com.halo.spring.data.jpa.example.example4.UserRepository;
+import com.halo.spring.data.jpa.example.chapter4.AuditorAwareImpl;
+import com.halo.spring.data.jpa.example.chapter4.User;
+import com.halo.spring.data.jpa.example.chapter4.UserRepository;
 
 @RunWith(SpringRunner.class)
 @Transactional

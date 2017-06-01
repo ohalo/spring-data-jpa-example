@@ -1,4 +1,4 @@
-package com.halo.spring.data.jpa.example.example4;
+package com.halo.spring.data.jpa.example.chapter4;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
@@ -20,9 +20,9 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.util.ReflectionTestUtils;
 
-import com.halo.spring.data.jpa.example.example4.AuditorAwareImpl;
-import com.halo.spring.data.jpa.example.example4.User;
-import com.halo.spring.data.jpa.example.example4.UserRepository;
+import com.halo.spring.data.jpa.example.chapter4.AuditorAwareImpl;
+import com.halo.spring.data.jpa.example.chapter4.User;
+import com.halo.spring.data.jpa.example.chapter4.UserRepository;
 
 @RunWith(SpringRunner.class)
 @Transactional
@@ -46,7 +46,7 @@ public class UserSample {
     }
 
     @Test
-    public void auditEntityCreation() throws Exception {
+    public void testAuditEntity() throws Exception {
 
         assertThat(ReflectionTestUtils.getField(listener, "handler"), is(notNullValue()));
 
