@@ -1,4 +1,4 @@
-package com.halo.spring.data.jpa.example.simplequery;
+package com.halo.spring.data.jpa.example.example4;
 
 import org.springframework.data.domain.AuditorAware;
 

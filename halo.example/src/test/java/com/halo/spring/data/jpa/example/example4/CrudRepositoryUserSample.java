@@ -1,4 +1,4 @@
-package com.halo.spring.data.jpa.example.crudrepository;
+package com.halo.spring.data.jpa.example.example4;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
@@ -15,9 +15,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.halo.spring.data.jpa.example.simplequery.AuditorAwareImpl;
-import com.halo.spring.data.jpa.example.simplequery.User;
-import com.halo.spring.data.jpa.example.simplequery.UserRepository;
+import com.halo.spring.data.jpa.example.example4.AuditorAwareImpl;
+import com.halo.spring.data.jpa.example.example4.User;
+import com.halo.spring.data.jpa.example.example4.UserRepository;
 
 @RunWith(SpringRunner.class)
 @Transactional
@@ -158,6 +158,24 @@ public class CrudRepositoryUserSample {
         for (User user2 : users) {
             System.out.println(user2.toString());
         }
+    }
+
+    @Test
+    public void testCountLastname() {
+        long count = repository.countByLastname("san");
+        assertThat(count, is(1L));
+    }
+
+    @Test
+    public void testDeleteLastname() {
+        long id = repository.deleteByLastname("san");
+        assertThat(id, is(1L));
+    }
+
+    @Test
+    public void testRemoveLastname() {
+        List<User> users = repository.removeByLastname("san");
+        assertThat(users.size(), is(1));
     }
 
 }

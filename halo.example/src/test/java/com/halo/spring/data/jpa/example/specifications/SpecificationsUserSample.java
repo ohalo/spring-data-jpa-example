@@ -25,8 +25,8 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.halo.spring.data.jpa.example.simplequery.User;
-import com.halo.spring.data.jpa.example.simplequery.UserRepository;
+import com.halo.spring.data.jpa.example.example4.User;
+import com.halo.spring.data.jpa.example.example4.UserRepository;
 
 @RunWith(SpringRunner.class)
 @Transactional

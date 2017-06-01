@@ -1,4 +1,6 @@
-package com.halo.spring.data.jpa.example.simplequery;
+package com.halo.spring.data.jpa.example.example4;
+
+import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
@@ -49,4 +51,28 @@ public interface UserRepository extends CrudRepository<User, Long>, JpaSpecifica
      */
     @Query(nativeQuery = true, value = "select * from T_USER u where u.username = ?1")
     User findNativeUserByUsername(String username);
+
+    /**
+     * 根据方法命名规则 查询count
+     * 
+     * @param lastname
+     * @return
+     */
+    Long countByLastname(String lastname);
+
+    /**
+     * 根据lastname删除记录
+     * 
+     * @param lastname
+     * @return
+     */
+    Long deleteByLastname(String lastname);
+
+    /**
+     * 根据lastname 删除记录
+     * 
+     * @param lastname
+     * @return
+     */
+    List<User> removeByLastname(String lastname);
 }

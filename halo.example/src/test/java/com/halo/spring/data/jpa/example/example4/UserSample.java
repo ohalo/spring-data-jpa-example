@@ -1,4 +1,4 @@
-package com.halo.spring.data.jpa.example.simplequery;
+package com.halo.spring.data.jpa.example.example4;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
@@ -19,6 +19,10 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.util.ReflectionTestUtils;
+
+import com.halo.spring.data.jpa.example.example4.AuditorAwareImpl;
+import com.halo.spring.data.jpa.example.example4.User;
+import com.halo.spring.data.jpa.example.example4.UserRepository;
 
 @RunWith(SpringRunner.class)
 @Transactional
