@@ -28,6 +28,8 @@ import lombok.Data;
  * 
  * @CreatedBy和@LastModifiedBy 是需要实现AuditorAware接口来返回你需要插入的值。
  * 
+ * @Data lombok注解方式，默认实现类中的setter getter方法 
+ * 
  * @author zhaohuiliang
  *
  */
