@@ -22,7 +22,6 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Direction;
-import org.springframework.data.domain.Sort.Order;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -110,7 +109,7 @@ public class SpecificationsUserSample {
     @Test
     public void testFindAllBySort() {
 
-        Sort sort = new Sort(new Order(Direction.DESC, "id"));
+        Sort sort = new Sort(Direction.DESC, "id");
         /**
          * 定义Specification 根据username查询
          */
