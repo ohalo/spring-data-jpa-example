@@ -1,7 +1,6 @@
 package com.halo.spring.data.jpa.example.part2;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 /**
  * 注解配置
