@@ -1,8 +1,10 @@
-package com.halo.spring.data.jpa.example.simplequery;
+package com.halo.spring.data.jpa.example;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
+
+import com.halo.spring.data.jpa.example.simplequery.AuditorAwareImpl;
 
 /**
  * 注解配置
