@@ -1,5 +1,7 @@
 package com.halo.spring.data.jpa.example.part1;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
@@ -7,7 +9,6 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import org.joda.time.LocalDateTime;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
@@ -28,7 +29,7 @@ import lombok.Data;
  * 
  * @CreatedBy和@LastModifiedBy 是需要实现AuditorAware接口来返回你需要插入的值。
  * 
- * @Data lombok注解方式，默认实现类中的setter getter方法 
+ * @Data lombok注解方式，默认实现类中的setter getter方法
  * 
  * @author zhaohuiliang
  *
@@ -59,14 +60,14 @@ public class User {
      * 
      * @CreatedDate 在实体添加的时候会设置值
      */
-    private @CreatedDate LocalDateTime      createdDate;
+    private @CreatedDate Date               createdDate;
 
     /**
      * 最后更新时间
      * 
      * @LastModifiedDate 在实体更新的时候会设置值
      */
-    private @LastModifiedDate LocalDateTime lastModifiedDate;
+    private @LastModifiedDate Date          lastModifiedDate;
 
     /**
      * 创建人
