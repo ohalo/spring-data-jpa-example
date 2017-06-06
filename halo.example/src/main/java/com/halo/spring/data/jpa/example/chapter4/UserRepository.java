@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Slice;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -60,8 +62,7 @@ public interface UserRepository extends CrudRepository<User, Long>, JpaSpecifica
      * @param username
      * @return
      */
-    @Query(value = "from User u where u.username = ?1")
-    Page<User> findUserByUsernameAndPage(String username, Pageable pageable);
+    Page<User> findByUsername(String username, Pageable pageable);
 
     /**
      * 定义hql语句查询
@@ -69,7 +70,35 @@ public interface UserRepository extends CrudRepository<User, Long>, JpaSpecifica
      * @param username
      * @return
      */
-    @Query(nativeQuery = true, value = "select * from T_USER u where u.username = ?1 ,?#{#pageable}")
+    @Query(value = "from User u where u.username = ?1")
+    Page<User> findUserByUsernameAndPage(String username, Pageable pageable);
+
+    /**
+     * 
+     * 传入分页信息查询Slice
+     * 
+     * @param username
+     * @param pageable
+     * @return
+     */
+    @Query(value = "from User u where u.username = ?1")
+    Slice<User> findByUsernameAndPageReturnSlice(String username, Pageable pageable);
+
+    @Query(value = "from User u where u.username = ?1")
+    List<User> findByUsernameAndSortReturnList(String username, Sort sort);
+
+    @Query(value = "from User u where u.username = ?1")
+    List<User> findByUsernameAndPageReturnLsit(String username, Pageable pageable);
+
+    /**
+     * 定义hql语句查询
+     * 
+     * @param username
+     * @return
+     */
+    @Query(nativeQuery = true, 
+            value = "select * from T_USER u where u.username = ?1 #{#pageable}",
+            countQuery = "select count(*) from T_USER u where u.username = ?1")
     Page<User> findNativeUserByUsernameAndPage(String username, Pageable pageable);
 
     /**
