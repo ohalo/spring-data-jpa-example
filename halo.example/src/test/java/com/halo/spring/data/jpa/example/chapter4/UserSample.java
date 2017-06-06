@@ -15,14 +15,13 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.util.ReflectionTestUtils;
-
-import com.halo.spring.data.jpa.example.chapter4.AuditorAwareImpl;
-import com.halo.spring.data.jpa.example.chapter4.User;
-import com.halo.spring.data.jpa.example.chapter4.UserRepository;
 
 @RunWith(SpringRunner.class)
 @Transactional
@@ -43,6 +42,12 @@ public class UserSample {
         user.setFirstname("zhang");
         user.setLastname("san");
         repository.save(user);
+        
+        User user1 = new User();
+        user1.setUsername("username");
+        user1.setFirstname("zhang");
+        user1.setLastname("san");
+        repository.save(user1);
     }
 
     @Test
@@ -56,10 +61,15 @@ public class UserSample {
         auditorAware.setUser(user);
 
         user = repository.save(user);
-        user = repository.save(user);
+        
+        
+        User user1 = new User();
+        user1.setUsername("username");
+        
+        user1 = repository.save(user1);
 
         assertThat(user.getCreatedBy(), is(user));
-        assertThat(user.getLastModifiedBy(), is(user));
+        assertThat(user1.getLastModifiedBy(), is(user));
     }
 
     @Test
@@ -86,6 +96,22 @@ public class UserSample {
     public void testDefineNativeSqlQuery() {
         User user = repository.findNativeUserByUsername("username");
         assertThat(user.getLastname(), is("san"));
+
+    }
+
+    @Test
+    public void testDefineSqlPageQuery() {
+        Pageable pageable = new PageRequest(0, 10);
+        Page<User> userPage = repository.findUserByUsernameAndPage("username", pageable);
+        assertThat(userPage.getTotalElements(), is(2L));
+
+    }
+    
+    @Test
+    public void testDefineNativeSqlPageQuery() {
+        Pageable pageable = new PageRequest(0, 10);
+        Page<User> userPage = repository.findNativeUserByUsernameAndPage("username", pageable);
+        assertThat(userPage.getTotalElements(), is(2L));
 
     }
 

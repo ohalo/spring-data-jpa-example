@@ -2,6 +2,8 @@ package com.halo.spring.data.jpa.example.chapter4;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -51,6 +53,24 @@ public interface UserRepository extends CrudRepository<User, Long>, JpaSpecifica
      */
     @Query(nativeQuery = true, value = "select * from T_USER u where u.username = ?1")
     User findNativeUserByUsername(String username);
+
+    /**
+     * 定义hql语句查询
+     * 
+     * @param username
+     * @return
+     */
+    @Query(value = "from User u where u.username = ?1")
+    Page<User> findUserByUsernameAndPage(String username, Pageable pageable);
+
+    /**
+     * 定义hql语句查询
+     * 
+     * @param username
+     * @return
+     */
+    @Query(nativeQuery = true, value = "select * from T_USER u where u.username = ?1 ,?#{#pageable}")
+    Page<User> findNativeUserByUsernameAndPage(String username, Pageable pageable);
 
     /**
      * 根据方法命名规则 查询count
