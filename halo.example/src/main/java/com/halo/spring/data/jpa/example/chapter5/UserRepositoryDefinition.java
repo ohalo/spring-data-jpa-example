@@ -14,4 +14,6 @@ public interface UserRepositoryDefinition {
      * @return
      */
     User findByUsername(String username);
+
+    void save(User user);
 }
