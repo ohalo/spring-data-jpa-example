@@ -14,4 +14,10 @@ public interface UserRepositoryDefinition {
      * @return
      */
     User findByUsername(String username);
+
+    /**
+     * 
+     * @param user
+     */
+    void save(User user);
 }
